@@ -101,6 +101,18 @@ public class Player : MonoBehaviour {
         return mirror;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+            {
+                Destroy(other.gameObject);
+            }
+        if (other.gameObject.CompareTag("Chest"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
     void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, _GroundCast.position);
